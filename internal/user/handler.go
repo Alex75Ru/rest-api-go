@@ -16,10 +16,10 @@ const (
 )
 
 type handler struct {
-	logger logging.Logger // добавляем в структуру логгер, и теперь его можно будет юзать во всех хендлерах
+	logger *logging.Logger // добавляем в структуру логгер, и теперь его можно будет юзать во всех хендлерах
 }
 
-func NewHandler(logger logging.Logger) handlers.Handler {
+func NewHandler(logger *logging.Logger) handlers.Handler {
 	return &handler{
 		logger: logger,
 	}
