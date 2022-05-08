@@ -4,6 +4,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 	"rest-api-go/internal/handlers"
+	"rest-api-go/pkg/logging"
 )
 
 // подсказка триггер - если изменения нарушат реализацию интерфейса, будет ошибка в этой строке
@@ -15,10 +16,13 @@ const (
 )
 
 type handler struct {
+	logger logging.Logger // добавляем в структуру логгер, и теперь его можно будет юзать во всех хендлерах
 }
 
-func NewHandler() handlers.Handler {
-	return &handler{}
+func NewHandler(logger logging.Logger) handlers.Handler {
+	return &handler{
+		logger: logger,
+	}
 }
 
 func (h *handler) Register(router *httprouter.Router) {
