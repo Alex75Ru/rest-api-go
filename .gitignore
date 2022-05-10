@@ -6,10 +6,11 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-
-*.dll
-*.dylib
+.idea
+# Binaries for programs and plugins
 *.exe
 *.exe~
+*.dll
 *.so
+*.dylib
 /vcs.xml
