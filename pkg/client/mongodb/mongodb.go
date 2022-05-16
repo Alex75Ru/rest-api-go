@@ -37,8 +37,8 @@ func NewClient(ctx context.Context, host, port, username, password, database, au
 
 	// Ping
 	if err = client.Ping(ctx, nil); err != nil {
-		return client.Database(database), nil
+		return nil, fmt.Errorf("failed to ping mongoDB due to error: %v", err)
 	}
 
-	return
+	return client.Database(database), nil
 }
